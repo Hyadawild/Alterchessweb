@@ -1,0 +1,95 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import CharacterCard from '../components/CharacterCard.astro';
+import Hero from '../components/Hero.astro';
+import Platform from '../components/Platform.astro';
+import Gameplay from '../components/Gameplay.astro';
+import Story from '../components/Story.astro';
+//import PlatformIcons from '../components/PlatformIcons.astro';
+import { characters } from '../const/data';
+
+
+---
+
+<Layout title="Home Page">
+  <!-- Hero Section -->
+  	<Hero />
+
+  <!-- Platforms Section -->
+   <Platform />
+  <!-- <PlatformIcons />/-->
+
+  <!-- Characters Section -->
+  <section id="characters" class="py-20 bg-gradient-to-b from-black to-gray-900">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	  <div class="text-center mb-16">
+		<h2 class="text-3xl md:text-4xl font-bold mb-4 glow-text">Meet the Resonators</h2>
+		<p class="text-lg text-gray-400 max-w-3xl mx-auto">
+		  Assemble your team of powerful Resonators, each with unique
+		  abilities and combat styles to master.
+		</p>
+	  </div>
+  
+	  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+		{characters.map((character) => (
+		  <CharacterCard character={character} />
+		))}
+	  </div>
+	</div>
+  </section>
+
+
+  <!-- ... Gamplay ... -->
+  <Gameplay />
+
+  <!-- ... story ... -->
+  <Story />
+  <!-- ... other sections ... -->
+
+</Layout>
+
+<script>
+	
+// Simple JavaScript for interactive elements
+document.addEventListener("DOMContentLoaded", () => {
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const targetId = anchor.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement instanceof HTMLElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
+  // Floating animation
+  const cards = document.querySelectorAll(".character-card");
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("transform", "transition-all", "duration-300");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("transform", "transition-all", "duration-300");
+    });
+  });
+
+  // Trailer play button
+  const trailerBtn = document.querySelector(".trailer-overlay button");
+  if (trailerBtn instanceof HTMLButtonElement) {
+    trailerBtn.addEventListener("click", () => {
+      alert("Trailer would play in a modal or fullscreen!");
+    });
+  }
+});
+
+  </script>

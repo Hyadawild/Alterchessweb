@@ -1,0 +1,49 @@
+---
+import BurgerMenu from "./BurgerMenu.jsx";
+const navLinks = [
+  { href: "#home", text: "Home" },
+  { href: "#characters", text: "Characters" },
+  { href: "#gameplay", text: "Gameplay" },
+  { href: "#story", text: "Story" },
+  { href: "#news", text: "News" },
+];
+---
+
+<nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <img class="h-10" src="/assets/logo.png" alt="Alter Chess" />
+        </div>
+        <div class="hidden md:block ml-10">
+          <div class="flex space-x-8">
+            {navLinks.map(link => (
+              <a
+                href={link.href}
+                class={`text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  link.href === '#home' ? 'text-purple-300' : ''
+                }`}
+              >
+                {link.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:block">
+        <button class="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 btn-hover-grow">
+          Pre-Register Now
+        </button>
+      </div>
+
+      <!-- Mobile Burger -->
+      <div class="md:hidden">
+        <BurgerMenu client:load />
+      </div>
+    </div>
+  </div>
+</nav>
