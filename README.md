@@ -1,5 +1,5 @@
 # Astro For Noob People Kit: Basics. ** Not Me basically **
-# ** Hidup Jokowi**
+# **Hidup Ponytail**
 ```sh
 npm create astro@latest -- --template basics
 ```
