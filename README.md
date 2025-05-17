@@ -1,5 +1,5 @@
-# Astro Starter Kit: Basics
-
+# Astro For Noob People Kit: Basics. ** Not Me basically **
+# **Hidup Ponytail**
 ```sh
 npm create astro@latest -- --template basics
 ```
