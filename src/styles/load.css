@@ -169,3 +169,11 @@ body {
     color: #ff00aa;
     transform: scale(1.2);
 }
+.hover-expand {
+    transition: letter-spacing 0.3s ease;
+  }
+  
+  .hover-expand:hover {
+    letter-spacing: 0.2em;
+  }
+  

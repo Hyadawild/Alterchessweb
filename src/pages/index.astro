@@ -11,86 +11,76 @@ import Load from "../components/Load.astro"
 </Prelayout>
 
 <script>
-    // Set the date we're counting down to (1 month from now)
-    const countDownDate = new Date();
-    countDownDate.setMonth(countDownDate.getMonth() + 2);
-    
-    // Update the countdown every 1 second
-    const x = setInterval(function() {
-        // Get today's date and time
-        const now = new Date().getTime();
-        
-        // Find the distance between now and the countdown date
-        const distance = countDownDate - now;
-        
-        // Time calculations for days, hours, minutes and seconds
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Display the result
-        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
-        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-        
-        // If the countdown is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("days").innerHTML = "00";
-            document.getElementById("hours").innerHTML = "00";
-            document.getElementById("minutes").innerHTML = "00";
-            document.getElementById("seconds").innerHTML = "00";
-        }
+    // Periksa apakah target waktu sudah disimpan
+    let storedTarget = localStorage.getItem('countdownTarget');
+  
+    const countDownDate = new Date("2025-07-01T12:00:00").getTime();
+  
+    // Update countdown setiap detik
+    const x = setInterval(function () {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+  
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+      document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+  
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+      }
     }, 1000);
-    
-    // Create floating particles
+  
+    // Partikel
     function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 30;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Random size between 2px and 5px
-            const size = Math.random() * 3 + 2;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Random position
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
-            
-            // Random animation duration between 10s and 20s
-            const duration = Math.random() * 10 + 10;
-            particle.style.animationDuration = `${duration}s`;
-            
-            // Random delay
-            particle.style.animationDelay = `${Math.random() * 10}s`;
-            
-            particlesContainer.appendChild(particle);
-        }
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+  
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+  
+        const size = Math.random() * 3 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+  
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+  
+        const duration = Math.random() * 10 + 10;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${Math.random() * 10}s`;
+  
+        particlesContainer.appendChild(particle);
+      }
     }
-    
-    // Initialize particles when page loads
+  
     window.addEventListener('load', createParticles);
-    
-    // Add hover effect to character cards
+  
+    // Hover efek kartu karakter
     document.querySelectorAll('.character-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const role = this.querySelector('.character-role');
-            role.style.background = 'linear-gradient(90deg, #ff00aa, #7700ff)';
-            role.style.webkitBackgroundClip = 'text';
-            role.style.webkitTextFillColor = 'transparent';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            const role = this.querySelector('.character-role');
-            role.style.background = 'linear-gradient(90deg, #ff00aa, #7700ff)';
-            role.style.webkitBackgroundClip = 'text';
-            role.style.webkitTextFillColor = 'transparent';
-        });
+      card.addEventListener('mouseenter', function () {
+        const role = this.querySelector('.character-role');
+        role.style.background = 'linear-gradient(90deg, #ff00aa, #7700ff)';
+        role.style.webkitBackgroundClip = 'text';
+        role.style.webkitTextFillColor = 'transparent';
+      });
+  
+      card.addEventListener('mouseleave', function () {
+        const role = this.querySelector('.character-role');
+        role.style.background = 'linear-gradient(90deg, #ff00aa, #7700ff)';
+        role.style.webkitBackgroundClip = 'text';
+        role.style.webkitTextFillColor = 'transparent';
+      });
     });
   </script>
+  
