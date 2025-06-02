@@ -1,5 +1,7 @@
 # Astro For Noob People Kit: Basics. ** Not Me basically **
+
 # **Hidup Ponytail**
+
 ```sh
 npm create astro@latest -- --template basics
 ```
@@ -21,6 +23,10 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   │
+│   ├── style/
+│   ├── const/
+│   ├── components/
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
@@ -28,7 +34,7 @@ Inside of your Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
 
 ## 🧞 Commands
 
@@ -45,4 +51,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
