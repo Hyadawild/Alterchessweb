@@ -6,11 +6,11 @@ import "../styles/global.css";
 <div
   class="character-card bg-gray-800 bg-opacity-60 rounded-xl overflow-hidden glow-box hover:glow-box"
 >
-  <div class="relative h-64 overflow-hidden">
+  <div class="relative center h-80 overflow-hidden">
     <img
       src={character.image}
       alt={character.name}
-      class="w-full h-full object-cover"
+      class="md:w-fit md:h-auto md:object-fit"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
     <div class="absolute bottom-0 left-0 p-4">
@@ -31,6 +31,7 @@ import "../styles/global.css";
 <style>
   .character-card {
     transition: all 0.3s ease;
+    position: center;
   }
   .character-card:hover {
     transform: translateY(-10px) scale(1.02);

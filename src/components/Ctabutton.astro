@@ -1,0 +1,24 @@
+---
+// src/components/CtaButton.astro
+---
+
+<div id="cta-button" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 bg-blue-600 text-white rounded-full shadow-lg flex items-center px-6 py-3 space-x-4 opacity-0 translate-y-10 pointer-events-none transition-all duration-500"
+>
+<span class="text-lg font-semibold">Download Now</span>
+<a
+    href="https://play.google.com/store"
+    target="_blank"
+    aria-label="Download on Play Store"
+    class="bg-white text-blue-600 hover:bg-gray-100 rounded-full p-2 transition"
+>
+    <img src="/assets/playstore.svg" alt="Play Store" class="w-6 h-6" />
+</a>
+<a
+    href="/download/windows"
+    target="_blank"
+    aria-label="Download for Windows"
+    class="bg-white text-blue-600 hover:bg-gray-100 rounded-full p-2 transition"
+>
+    <img src="/assets/windows.svg" alt="Windows" class="w-6 h-6" />
+</a>
+</div>

@@ -2,21 +2,45 @@
 // src/layouts/Layout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import CtaButton from '../components/Ctabutton.astro';
 ---
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alter Chess | Next Gen Chess</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-<body class="min-h-screen font-sans bg-gray-900 text-gray-100">
-  <Header />
-  <slot />
-  <Footer />
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><slot name="title" /></title>
+  </head>
+  <body class="bg-black text-white relative">
+    <Header />
+
+    <CtaButton />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Script scroll trigger -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ctaButton = document.getElementById("cta-button");
+        const heroSection = document.querySelector("#home");
+
+        const showCTA = () => {
+          const heroBottom = heroSection.getBoundingClientRect().bottom;
+          if (heroBottom <= 0) {
+            ctaButton.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
+            ctaButton.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+          } else {
+            ctaButton.classList.add("opacity-0", "translate-y-10", "pointer-events-none");
+            ctaButton.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+          }
+        };
+
+        window.addEventListener("scroll", showCTA);
+      });
+          </script>
+  </body>
 </html>
