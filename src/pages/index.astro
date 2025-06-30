@@ -9,6 +9,7 @@ import Story from '../components/Story.astro';
 import Team from '../components/Team.astro';
 //import PlatformIcons from '../components/PlatformIcons.astro';
 import { characters } from '../const/data';
+import News from '../components/News.astro';
 
 
 ---
@@ -22,7 +23,8 @@ import { characters } from '../const/data';
   <!-- <PlatformIcons />/-->
 
   <!-- Characters Section -->
-  <section id="characters" class="py-20 bg-gradient-to-b from-black to-gray-900">
+  <section id="characters" class="py-20 bg-gradient-to-b from-black to-gray-900"
+  data-aos="zoom-in">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 	  <div class="text-center mb-16">
 		<h2 class="text-3xl md:text-4xl font-bold mb-4 glow-text">Meet the Resonators</h2>
@@ -32,7 +34,7 @@ import { characters } from '../const/data';
 		</p>
 	  </div>
   
-	  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+	  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
 		{characters.map((character) => (
 		  <CharacterCard character={character} />
 		))}
@@ -46,9 +48,16 @@ import { characters } from '../const/data';
 
   <!-- ... story ... -->
   <Story />
+  <News/>
   <!-- ... other sections ... -->
   <Team />
 </Layout>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+   
+</script>
+
+
 
 <script>
 	

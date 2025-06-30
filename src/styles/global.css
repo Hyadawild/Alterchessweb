@@ -1,5 +1,6 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap");
+@import "tailwindcss";
+
 
       body {
         font-family: "Montserrat", sans-serif;
@@ -101,4 +102,12 @@
       }
       html {
         scroll-behavior: smooth;
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+       -ms-overflow-style: none;
+       scrollbar-width: none;
       }
