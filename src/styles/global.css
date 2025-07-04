@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import "tailwindcss";
 
 
       body {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Press Start 2P", sans-serif;
         background-color: #0a0a1a;
         color: #e0e0ff;
         overflow-x: hidden;
@@ -27,6 +27,21 @@
         transform: translateY(-10px) scale(1.02);
         box-shadow: 0 25px 50px -12px rgba(132, 59, 206, 0.25);
       }
+  .perspective {
+    perspective: 1900px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .carousel-img {
+    top: 0;
+    left: 0;
+    transform-origin: center center;
+    transition: transform 1s, opacity 1s;
+  }
+
 
       .parallax-bg {
         background-attachment: fixed;

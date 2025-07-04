@@ -1,36 +1,50 @@
 // src/const/data.js
 export const characters = [
   {
-    name: "Kaelith",
+    name: "Novaria",
     title: "Stormblade",
-    image: "/src/assets/api.svg",
+    image: "ccpi.png",
     description:
       "A wandering swordsman who channels the power of storms through his blade.",
-    element: "Electro",
-    elementColor: "purple",
+    element: "Fusion",
+    elementColor: "Red",
     type: "Melee",
-    rating: "★★★★☆",
+    rating: "★★★★★",
   },
   {
-    name: "Kaelith",
+    name: "Frosticia",
     title: "Stormblade",
-    image: "/src/assets/ice.jpg",
+    image: "cces.png",
     description:
       "A wandering swordsman who channels the power of storms through his blade.",
-    element: "Electro",
-    elementColor: "purple",
+    element: "Glacier",
+    elementColor: "Blue",
     type: "Melee",
-    rating: "★★★★☆",
+    rating: "★★★★★★★★★★",
   },
   {
-    name: "Kaelith",
+    name: "Lucia",
     title: "Stormblade",
-    image: "/assets/characters/kaelith.png",
+    image: "ccna.png",
     description:
       "A wandering swordsman who channels the power of storms through his blade.",
-    element: "Electro",
-    elementColor: "purple",
+    element: "",
+    elementColor: "Brown",
     type: "Melee",
     rating: "★★★★☆",
   }
 ]
+export const team =[
+      {
+    name: "Novaria",
+    title: "Stormblade",
+    image: "kaelith.png",
+    description:
+      "A wandering swordsman who channels the power of storms through his blade.",
+    element: "Fusion",
+    elementColor: "Red",
+    type: "Melee",
+    rating: "★★★★★",
+  },
+]
+
