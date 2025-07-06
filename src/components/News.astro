@@ -2,34 +2,59 @@
 // src/components/NewsSection.astro
 import { news } from "../const/n_data.js";
 import "../styles/global.css";
-import NewsCard from "./Newscard.astro";
-const showHorizontal = news.length > 3;
+
+let selected = 0;
+function selectNews(index) {
+  selected = index;
+}
 ---
 
-<section id="news" class="py-20 bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 glow-text">Latest News</h2>
-        <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-          Stay updated with the latest developments and announcements.
-        </p>
-      </div>
-  
-      <div
-        class:list={[showHorizontal ? "flex overflow-x-auto space-x-6" : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"]}
-        class="scrollbar-hide pb-2"
-      >
+<section id="news" class="py-20 bg-[#0a0f1c] text-white ">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 border-b border-gray-600 pb-4">
+      NEWS
+    </h2>
+
+    <!-- Tab Filters -->
+    <div class="flex items-center space-x-6 text-sm font-semibold mb-6 border-b border-gray-700 pb-2">
+      <button class="text-yellow-400 border-b-2 border-yellow-400 pb-1">Latest</button>
+      <button class="text-gray-400 hover:text-white">Notice</button>
+      <button class="text-gray-400 hover:text-white">News</button>
+      <button class="text-gray-400 hover:text-white">Event</button>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10">
+
+      <!-- Left: News List -->
+      <div class="space-y-4">
         {news.map((item, index) => (
-          <div class={showHorizontal ? "min-w-[300px] flex-shrink-0" : ""}>
-            <NewsCard item={item} />
+          <div
+            on:click={() => selectNews(index)}
+            class={"flex items-center justify-between border-b border-gray-700 pb-2 group cursor-pointer hover:bg-gray-800 px-2 py-2 rounded " + (selected === index ? 'bg-gray-800' : '')}
+          >
+            <div class="flex items-center space-x-3">
+              <span class="text-xs bg-gray-600 text-white px-2 py-0.5 rounded-full">•{item.category}•</span>
+              <p class="text-sm text-gray-200 group-hover:text-white line-clamp-1">{item.title}</p>
+            </div>
+            <p class="text-xs text-gray-400">{item.date}</p>
           </div>
         ))}
-      </div>
-  
-      <div class="text-center mt-12">
-        <button class="bg-transparent border-2 border-purple-500 hover:bg-purple-900 hover:bg-opacity-30 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 btn-hover-grow">
-          View All News <i class="fas fa-arrow-right ml-2"></i>
+        <button class="mt-4 px-4 py-1 border border-gray-600 rounded-full text-xs text-gray-300 hover:bg-gray-700">
+          MORE
         </button>
       </div>
+
+      <!-- Right: Feature Image -->
+      <div>
+        <div class="overflow-hidden rounded-2xl border border-gray-700 shadow-lg">
+          <img src={news[selected].image} alt="Featured" class="w-full h-full object-cover transition-all duration-500" />
+          <div class="p-4 bg-black bg-opacity-60">
+            <h3 class="text-xl font-bold mb-2">{news[selected].title}</h3>
+            <p class="text-sm text-gray-300">{news[selected].description}</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>

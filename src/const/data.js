@@ -2,10 +2,10 @@
 export const characters = [
   {
     name: "Novaria",
-    title: "Stormblade",
+    title: "Ignis Flare",
     image: "ccpi.png",
     description:
-      "A wandering swordsman who channels the power of storms through his blade.",
+      "Descendant of the Ignis kingdom with noble blood that resonates with Phoenix.",
     element: "Fusion",
     elementColor: "Red",
     type: "Melee",
@@ -13,21 +13,21 @@ export const characters = [
   },
   {
     name: "Frosticia",
-    title: "Stormblade",
+    title: "De Glacier",
     image: "cces.png",
     description:
-      "A wandering swordsman who channels the power of storms through his blade.",
+      "Queen of Glacier kingdom blessed with power of the arcane master to participate in the sacred chess.",
     element: "Glacier",
     elementColor: "Blue",
-    type: "Melee",
-    rating: "★★★★★★★★★★",
+    type: "Sword",
+    rating: "★★★★★",
   },
   {
     name: "Lucia",
-    title: "Stormblade",
+    title: "Terranova",
     image: "ccna.png",
     description:
-      "A wandering swordsman who channels the power of storms through his blade.",
+      "Semi-humans who guard the Valdera forest come from Terranova kingdom since the time of Egypt.",
     element: "",
     elementColor: "Brown",
     type: "Melee",

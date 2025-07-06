@@ -6,6 +6,7 @@ const navLinks = [
   { href: "#gameplay", text: "Gameplay" },
   { href: "#story", text: "Story" },
   { href: "#news", text: "News" },
+  { href: "#team", text: "Team" },
 ]
 
 export default function BurgerMenu() {
@@ -35,9 +36,13 @@ export default function BurgerMenu() {
               {link.text}
             </a>
           ))}
-          <button className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300">
-            Pre-Register Now
-          </button>
+          <button class="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-3 rounded-full text-sm  transition-all duration-300 btn-hover-grow"
+        >
+          <a href="https://devhalu.itch.io/alterchess"  target="_blank">
+            Download Now!
+          </a>
+          
+        </button>
         </div>
       )}
     </>
